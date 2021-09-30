@@ -17,9 +17,11 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
+
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
+// speler data
 
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
@@ -104,6 +106,10 @@ function draw() {
       spelStatus = GAMEOVER;
     }
   }
+  var beweegSpeler = function () {
+
+  }
+};
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
 
