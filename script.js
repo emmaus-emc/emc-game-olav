@@ -17,11 +17,13 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
-
+var LEFT_KEY = 37; //pijltje links
+var RIGHT_KEY = 39;//pijltje rechts
+var UP_KEY = 38;// pijltje omhoog
+var DOWN_KEY = 40;//pijltje omlaag
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
-// speler data
 
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
@@ -32,7 +34,19 @@ var beweegAlles = function () {
   // kogel
 
   // speler
-
+  if (keyIsDown(LEFT_KEY)) {
+    spelerX = spelerX - 20;
+    
+  };
+  if (keyIsDown(RIGHT_KEY)) {
+    spelerX = spelerX + 20;
+  };
+  if (keyIsDown(DOWN_KEY)) {
+    spelerY = spelerY + 20;
+  }
+  if (keyIsDown(UP_KEY)) {
+    spelerY = spelerY - 20;
+  };
 };
 
 /**
@@ -52,6 +66,8 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
+  fill("black");
+  rect(0, 0, 1280, 720);
 
   // vijand
 
@@ -106,12 +122,10 @@ function draw() {
       spelStatus = GAMEOVER;
     }
   }
-  var beweegSpeler = function () {
-
-  }
-};
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
 
   }
 }
+
+
