@@ -33,17 +33,17 @@ var DOWN_KEY = 40;//pijltje omlaag
  */
 var beweegAlles = function () {
   // vijand
-vijandY = vijandY +20
+  vijandY = vijandY + 20
 
-if (vijandY > 721){
-  vijandY = 0;
-}
+  if (vijandY > 721) {
+    vijandY = 0;
+  }
   // kogel
 
   // speler
   if (keyIsDown(LEFT_KEY)) {
     spelerX = spelerX - 20;
-    
+
   };
   if (keyIsDown(RIGHT_KEY)) {
     spelerX = spelerX + 20;
@@ -55,16 +55,16 @@ if (vijandY > 721){
     spelerY = spelerY - 20;
   };
   if (spelerX < 0) {
-    spelerX=0;
+    spelerX = 1280;
   }
   if (spelerY > 720) {
     spelerY = 720;
   }
-  if (spelerY <0) {
+  if (spelerY < 0) {
     spelerY = 0;
   }
   if (spelerX > 1280) {
-    spelerX = 1280;
+    spelerX = 0;
   }
 
 };
@@ -76,7 +76,14 @@ if (vijandY > 721){
  */
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
-
+  if (
+    (vijandX - spelerX) < 50 &&
+    (vijandX - spelerX) > -50 &&
+    (vijandY - spelerY) < 50 &&
+    (vijandY - spelerY) > -50
+  ) {
+    console.log("botsing")
+  }
   // botsing kogel tegen vijand
 
 };
@@ -151,10 +158,4 @@ function draw() {
   }
 }
 
-/*if (vijandX - spelerX) < 50 &&
-(vijandX - spelerX) > -50 &&
-(vijandY - spelerY) < 50 &&
-(vijandY - spelerY) > -50;
 
-{ console.log (''botsing'')
-}*/
