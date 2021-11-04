@@ -18,7 +18,8 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600; // x-positie van vijand
 var vijandY = 200; // y-positie van vijand
-
+var spelerHealth = 100; //health van speler
+var vijandHealth = 100; //health van vijand
 
 var LEFT_KEY = 37; //pijltje links
 var RIGHT_KEY = 39;//pijltje rechts
@@ -83,6 +84,7 @@ var verwerkBotsing = function () {
     (vijandY - spelerY) > -50
   ) {
     console.log("botsing")
+    {spelerHealth = spelerHealth - 1}
   }
   // botsing kogel tegen vijand
 
@@ -110,6 +112,9 @@ var tekenAlles = function () {
   ellipse(spelerX, spelerY, 10, 10);
 
   // punten en health
+  fill("white");
+textSize(50);
+text(spelerHealth, 100, 100);
 
 };
 
