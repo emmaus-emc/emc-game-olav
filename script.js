@@ -18,8 +18,12 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600; // x-positie van vijand
 var vijandY = 200; // y-positie van vijand
+var vijandX1 = 450;
+var vijandX2 = 750;
 var spelerHealth = 100; //health van speler
 var vijandHealth = 100; //health van vijand
+var punten = 0;
+
 
 var LEFT_KEY = 37; //pijltje links
 var RIGHT_KEY = 39;//pijltje rechts
@@ -103,6 +107,16 @@ var tekenAlles = function () {
   rect(vijandX - 25, vijandY - 25, 50, 50);
   fill("black");
   ellipse(vijandX, vijandY, 10, 10);
+
+    fill("red");
+  rect(vijandX1 - 25, vijandY - 25, 50, 50);
+  fill("black");
+  ellipse(vijandX1, vijandY, 10, 10);
+
+    fill("red");
+  rect(vijandX2 - 25, vijandY - 25, 50, 50);
+  fill("black");
+  ellipse(vijandX2, vijandY, 10, 10);
   // kogel
 
   // speler
@@ -114,8 +128,13 @@ var tekenAlles = function () {
   // punten en health
   fill("white");
 textSize(50);
-text(spelerHealth, 100, 100);
+text("HP = " + spelerHealth, 100, 100);
 
+  if (spelStatus === SPELEN) {
+   fill("white");
+textSize(50);
+text("punten = " + punten, 100, 200);
+  }
 };
 
 /**
@@ -123,7 +142,13 @@ text(spelerHealth, 100, 100);
  * anders return false
  */
 var checkGameOver = function () {
-  return false;
+  if (spelerHealth < 1) {
+    return true;
+  } else {
+     punten = punten + 1;
+    return false;
+
+  }
 };
 
 /* ********************************************* */
@@ -159,7 +184,9 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+fill("skyblue")
+textSize(40);
+text("run opnieuw om nog een keer te spelen", 300, 300)
   }
 }
 
