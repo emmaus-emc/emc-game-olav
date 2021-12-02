@@ -103,20 +103,13 @@ var tekenAlles = function () {
   rect(0, 0, 1280, 720);
 
   // vijand
+ for (var i=0; i=3; i=i+1) {
   fill("red");
-  rect(vijandX - 25, vijandY - 25, 50, 50);
+  rect(vijandX +i*200 - 25, vijandY - 25, 50, 50);
   fill("black");
   ellipse(vijandX, vijandY, 10, 10);
+ }
 
-    fill("red");
-  rect(vijandX1 - 25, vijandY - 25, 50, 50);
-  fill("black");
-  ellipse(vijandX1, vijandY, 10, 10);
-
-    fill("red");
-  rect(vijandX2 - 25, vijandY - 25, 50, 50);
-  fill("black");
-  ellipse(vijandX2, vijandY, 10, 10);
   // kogel
 
   // speler
